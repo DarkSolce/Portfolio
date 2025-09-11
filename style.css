@@ -92,8 +92,8 @@ ul {
 }
 
 .cert-thumb {
-    width: 200px;  /* Nouvelle largeur */
-    height: 100px; /* Nouvelle hauteur */
+    width: 400px;  /* Nouvelle largeur */
+    height: 250px; /* Nouvelle hauteur */
     object-fit: cover;
     border-radius: 8px;
     margin-right: 15px;
