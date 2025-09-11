@@ -1,13 +1,11 @@
 :root {
-    --blue-dark: #1F2937;   /* Gris anthracite foncé */
-    --blue-light: #3B82F6;  /* Bleu vif */
-    --gray-light: #F9FAFB;  /* Gris clair */
-    --gray-dark: #111827;   /* Texte foncé */
+    --blue-dark: #0A3D62;   /* Bleu professionnel foncé */
+    --blue-light: #3A7CA5;  /* Bleu clair attrayant */
+    --gray-light: #F4F4F4;  /* Gris très clair pour fond */
+    --gray-dark: #2E2E2E;   /* Gris sombre pour texte */
     --white: #FFFFFF;
-    --gradient-primary: linear-gradient(135deg, #1F2937, #3B82F6); /* Footer */
 }
 
-/* === GLOBAL === */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -52,18 +50,17 @@ section {
     margin: auto;
 }
 
-h2, h3 {
+h2 {
     color: var(--blue-dark);
+    border-bottom: 2px solid var(--blue-dark);
+    padding-bottom: 5px;
     text-align: center;
 }
 
-h2 {
-    border-bottom: 2px solid var(--blue-dark);
-    padding-bottom: 5px;
-}
-
 h3 {
+    color: var(--blue-dark);
     margin-top: 30px;
+    text-align: center;
 }
 
 ul {
@@ -71,7 +68,7 @@ ul {
     margin-left: 20px;
 }
 
-/* === IMAGES PROJETS === */
+/* === IMAGES === */
 .projet-img {
     max-width: 100%;
     width: 600px;
@@ -95,11 +92,11 @@ ul {
 }
 
 .cert-thumb {
-    width: 200px;
-    height: 100px;
+    width: 200px;  /* Nouvelle largeur */
+    height: 100px; /* Nouvelle hauteur */
     object-fit: cover;
     border-radius: 8px;
-    margin-right: 20px;
+    margin-right: 15px;
     flex-shrink: 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     transition: all 0.4s ease;
@@ -144,24 +141,11 @@ ul {
     transition: all 0.4s ease;
 }
 
-.cert-list li:hover {
-    transform: translateX(10px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-}
-
 .cert-list li div {
     flex: 1;
 }
 
-/* === PROJETS === */
-.projet {
-    background: var(--white);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
+/* === BOUTONS === */
 .btn {
     display: inline-block;
     background-color: var(--blue-dark);
@@ -180,7 +164,7 @@ ul {
     box-shadow: 0 4px 15px rgba(13, 59, 102, 0.3);
 }
 
-/* === ANIMATIONS SCROLL === */
+/* === ANIMATIONS DE SCROLL === */
 .scroll-element, .cert-thumb, .projet-img, .experience-logo, .experience, .cert-list li {
     opacity: 0;
     transform: translateY(50px);
@@ -192,21 +176,9 @@ ul {
     transform: translateY(0);
 }
 
-/* === DELAIS POUR CASCADE === */
-.cert-list li:nth-child(1).visible { transition-delay: 0.1s; }
-.cert-list li:nth-child(2).visible { transition-delay: 0.2s; }
-.cert-list li:nth-child(3).visible { transition-delay: 0.3s; }
-.cert-list li:nth-child(4).visible { transition-delay: 0.4s; }
-.cert-list li:nth-child(5).visible { transition-delay: 0.5s; }
-
-.experience:nth-child(1).visible { transition-delay: 0.1s; }
-.experience:nth-child(2).visible { transition-delay: 0.3s; }
-.experience:nth-child(3).visible { transition-delay: 0.5s; }
-.experience:nth-child(4).visible { transition-delay: 0.7s; }
-
-/* === SURVOL === */
+/* Effets de hover sur les images */
 .cert-thumb:hover {
-    transform: scale(1.2) rotate(5deg);
+    transform: scale(1.1) rotate(2deg);
     box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
@@ -220,56 +192,113 @@ ul {
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* === ANIMATIONS SUPPLEMENTAIRES === */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInRight {
-    from { opacity: 0; transform: translateX(50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-.animate-fade-up { animation: fadeInUp 0.8s ease-out; }
-.animate-slide-left { animation: slideInLeft 0.8s ease-out; }
-.animate-slide-right { animation: slideInRight 0.8s ease-out; }
-
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
-    .experience { flex-direction: column; text-align: center; }
-    .experience-logo { margin: 0 auto 15px auto; }
-    .projet-img { width: 100%; max-width: 400px; height: 200px; }
-    .cert-list li { flex-direction: column; text-align: center; }
-    .cert-thumb { width: 150px; height: 75px; margin: 0 0 10px 0; }
+    .experience {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .experience-logo {
+        margin: 0 auto 15px auto;
+    }
+
+    .projet-img {
+        width: 100%;
+        max-width: 400px;
+        height: 200px;
+    }
+
+    .cert-list li {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cert-thumb {
+        width: 150px;
+        height: 75px;
+        margin: 0 0 10px 0;
+    }
 }
 
 /* === FOOTER === */
 footer {
-    background: var(--gradient-primary);
+    background: var(--blue-dark);
     color: var(--white);
     text-align: center;
     padding: 40px 20px;
     margin-top: 60px;
-    position: relative;
+}
+/* === CERTIFICATIONS PREMIUM === */
+.cert-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.cert-list li {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     overflow: hidden;
+    list-style: none;
+    transition: transform 0.5s, box-shadow 0.5s;
+    width: 220px; /* Ajusté pour image et texte */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
 }
 
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+.cert-thumb {
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.5s, box-shadow 0.5s;
+    margin-bottom: 12px;
 }
 
-footer p {
-    position: relative;
-    z-index: 1;
-    font-size: 1.1em;
-    margin: 0;
+.cert-list li:hover .cert-thumb {
+    transform: scale(1.15) rotate(2deg);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.cert-list li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+/* Texte des certifications */
+.cert-list li div {
+    text-align: center;
+    font-weight: bold;
+    color: var(--blue-dark);
+    font-size: 0.95em;
+}
+
+/* Scroll animation */
+.cert-list li {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cert-list li.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cert-list li {
+        width: 90%;
+    }
+
+    .cert-thumb {
+        width: 180px;
+        height: 90px;
+    }
 }
