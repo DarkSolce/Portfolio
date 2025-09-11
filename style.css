@@ -88,3 +88,20 @@ ul {
 
 .experience-logo {
     max-width: 
+/* Animation apparition au scroll */
+.scroll-element, .cert-thumb, .projet-img, .experience-logo {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.scroll-element.visible, .cert-thumb.visible, .projet-img.visible, .experience-logo.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Effet zoom sur les images */
+.cert-thumb:hover, .projet-img:hover, .experience-logo:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
