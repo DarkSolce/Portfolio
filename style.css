@@ -302,3 +302,39 @@ footer {
         height: 90px;
     }
 }
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.profile-photo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.about-container p {
+    max-width: 600px;
+    font-size: 1em;
+    color: var(--gray-dark);
+    line-height: 1.6;
+}
