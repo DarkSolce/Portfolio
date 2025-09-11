@@ -64,15 +64,68 @@ img {
 }
 
 /* === INDIVIDUAL IMAGE CLASSES === */
-.profile-img { width: 600px; height: 600px; }
-.cert-thumb { }
-.experience-logo {width: 120px; height: 120px; }
-.other-img-1 { width: 500px; height: 500px; }
-.other-img-2 { width: 400px; height: 550px; }
-.other-img-3 { width: 400px; height: 550px; }
-.other-img-4 { width: 500px; height: 500px; }
-.other-img-5 { width: 400px; height: 700px; }
-.other-img-6 { width: 400px; height: 700px; }
+.profile-img {
+    width: 600px;   /* change freely */
+    height: 600px;  /* change freely */
+    object-fit: cover;
+    display: block;
+}
+
+.cert-thumb {
+    width: 500px;   /* default size, change freely */
+    height: 250px;  
+    object-fit: cover;
+    display: block;
+}
+
+.experience-logo {
+    width: 120px;   
+    height: 120px;  
+    object-fit: cover;
+    display: block;
+}
+
+.other-img-1 {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.other-img-2 {
+    width: 400px;
+    height: 550px;
+    object-fit: cover;
+    display: block;
+}
+
+.other-img-3 {
+    width: 400px;
+    height: 550px;
+    object-fit: cover;
+    display: block;
+}
+
+.other-img-4 {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.other-img-5 {
+    width: 400px;
+    height: 700px;
+    object-fit: cover;
+    display: block;
+}
+
+.other-img-6 {
+    width: 400px;
+    height: 700px;
+    object-fit: cover;
+    display: block;
+}
 
 /* Example: you can change dimensions like this:
 .profile-img { width: 500px; height: 500px; }
