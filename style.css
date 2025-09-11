@@ -64,11 +64,10 @@ img {
 }
 
 /* === INDIVIDUAL IMAGE CLASSES === */
-.profile-img { }
-.projet-img { }
+.profile-img { width: 500px; height: 500px; }
 .cert-thumb { }
-.experience-logo { }
-.other-img-1 { }
+.experience-logo {width: 120px; height: 120px; }
+.other-Logo Dynamix Services { }
 .other-img-2 { }
 .other-img-3 { }
 .other-img-4 { }
