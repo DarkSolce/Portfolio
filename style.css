@@ -48,38 +48,42 @@ header nav a {
 
 header nav a:hover { color: var(--blue-light); }
 
-/* === ABOUT === */
-.about-content {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.profile-img {
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: all 0.4s ease;
-}
-
 /* === SECTIONS === */
 .section-light { background-color: var(--white); }
 
-/* === IMAGES === */
-.projet-img, .cert-thumb, .experience-logo {
+/* === DEFAULT IMAGE STYLE === */
+img {
     display: block;
     margin: 20px auto;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    object-fit: cover;
     transition: all 0.4s ease;
+    width: 500px;   /* default width */
+    height: 250px;  /* default height */
 }
 
-.projet-img { width: 600px; height: 300px; object-fit: cover; }
-.cert-thumb, .experience-logo { width: 600px; height: 300px; object-fit: cover; }
+/* === INDIVIDUAL IMAGE CLASSES === */
+.profile-img { }
+.projet-img { }
+.cert-thumb { }
+.experience-logo { }
+.other-img-1 { }
+.other-img-2 { }
+.other-img-3 { }
+.other-img-4 { }
+.other-img-5 { }
+.other-img-6 { }
+.other-img-7 { }
+.other-img-8 { }
+.other-img-9 { }
+.other-img-10 { }
+
+/* Example: you can change dimensions like this:
+.profile-img { width: 500px; height: 500px; }
+.projet-img { width: 600px; height: 300px; }
+.cert-thumb { width: 400px; height: 200px; }
+*/
 
 /* === EXPERIENCES === */
 .experience {
@@ -113,8 +117,6 @@ header nav a:hover { color: var(--blue-light); }
 
 .cert-list li:hover { transform: translateX(10px); }
 
-.cert-list li div { margin-left: 20px; }
-
 /* === BUTTONS === */
 .btn {
     display: inline-block;
@@ -134,13 +136,19 @@ header nav a:hover { color: var(--blue-light); }
 }
 
 /* === SCROLL ANIMATIONS === */
-.scroll-element, .projet-img, .experience-logo, .experience, .cert-list li {
+.scroll-element, .projet-img, .experience-logo, .experience, .cert-list li, .profile-img,
+.other-img-1, .other-img-2, .other-img-3, .other-img-4, .other-img-5,
+.other-img-6, .other-img-7, .other-img-8, .other-img-9, .other-img-10 {
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.scroll-element.visible, .projet-img.visible, .experience-logo.visible, .experience.visible, .cert-list li.visible {
+.scroll-element.visible, .projet-img.visible, .experience-logo.visible, .experience.visible, 
+.cert-list li.visible, .profile-img.visible,
+.other-img-1.visible, .other-img-2.visible, .other-img-3.visible, .other-img-4.visible,
+.other-img-5.visible, .other-img-6.visible, .other-img-7.visible, .other-img-8.visible,
+.other-img-9.visible, .other-img-10.visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -156,11 +164,17 @@ footer {
 footer p { margin: 0; }
 
 /* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    img {
+        width: 80% !important;
+        height: auto !important;
+    }
+}
+
 @media (max-width: 768px) {
     .experience { flex-direction: column; text-align: center; }
     .experience-logo { margin: 0 auto 15px; }
-    .projet-img, .cert-thumb { width: 100%; max-width: 400px; height: 200px; }
     .cert-list li { flex-direction: column; text-align: center; }
-    .cert-list li div { margin-left: 0; margin-top: 10px; }
-    .profile-img { width: 100%; max-width: 300px; height: 300px; }
+    .cert-thumb { margin: 0 0 10px 0; }
+    img { width: 100% !important; height: auto !important; }
 }
