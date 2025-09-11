@@ -295,11 +295,30 @@ ul {
     }
 }
 
-/* === FOOTER === */
+/* === FOOTER AMÉLIORÉ === */
 footer {
-    background-color: var(--blue-dark);
+    background: var(--gradient-primary);
     color: var(--white);
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+    padding: 40px 20px;
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+}
+
+footer p {
+    position: relative;
+    z-index: 1;
+    font-size: 1.1em;
+    margin: 0;
 }
