@@ -1,22 +1,9 @@
-// Animation scroll pour la section À propos
-const aboutSection = document.querySelector('.about-container');
-if (aboutSection) {
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                aboutSection.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.2 });
-    observer.observe(aboutSection);
-}
-
-// Sélection des éléments pour scroll animation
+// === SELECTEURS ===
 const scrollElements = document.querySelectorAll(
-  ".scroll-element, .cert-thumb, .projet-img, .experience-logo, .experience, .cert-list li"
+  ".scroll-element, .certif-img, .projet-img, .about-container"
 );
 
-// Vérifie si élément est visible
+// === FONCTIONS VISIBILITÉ ===
 const elementInView = (el, dividend = 1) => {
   const elementTop = el.getBoundingClientRect().top;
   return elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend;
@@ -27,25 +14,30 @@ const elementOutofView = (el) => {
   return elementTop > (window.innerHeight || document.documentElement.clientHeight);
 };
 
-// Ajout / retrait de classe visible
-const displayScrollElement = (element) => element.classList.add("visible");
-const hideScrollElement = (element) => element.classList.remove("visible");
+const displayScrollElement = (element) => {
+  element.classList.add("visible");
+};
 
-// Fonction principale de scroll
+const hideScrollElement = (element) => {
+  element.classList.remove("visible");
+};
+
+// === FONCTION PRINCIPALE DE SCROLL ===
 const handleScrollAnimation = () => {
   scrollElements.forEach((el) => {
-    if (elementInView(el, 1.2)) displayScrollElement(el);
-    else if (elementOutofView(el)) hideScrollElement(el);
+    if (elementInView(el, 1.2)) {
+      displayScrollElement(el);
+    } else if (elementOutofView(el)) {
+      hideScrollElement(el);
+    }
   });
 };
 
-// Listener scroll
+// === LISTENER SCROLL ===
 window.addEventListener("scroll", handleScrollAnimation);
-
-// Initialisation au chargement
 document.addEventListener("DOMContentLoaded", handleScrollAnimation);
 
-// Click sur les boutons pour projets
+// === BOUTONS PROJETS ===
 const projectButtons = document.querySelectorAll(".btn");
 projectButtons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
