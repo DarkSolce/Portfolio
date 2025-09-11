@@ -1,6 +1,3 @@
-/* ========================= */
-/* VARIABLES DE COULEURS */
-/* ========================= */
 :root {
     --blue-dark: #0D3B66;
     --blue-light: #3D5A80;
@@ -9,9 +6,6 @@
     --white: #FFFFFF;
 }
 
-/* ========================= */
-/* STYLE GLOBAL */
-/* ========================= */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -21,18 +15,6 @@ body {
     color: var(--gray-dark);
 }
 
-a {
-    color: var(--blue-dark);
-    text-decoration: none;
-}
-
-a:hover {
-    color: var(--blue-light);
-}
-
-/* ========================= */
-/* HEADER */
-/* ========================= */
 header {
     background-color: var(--blue-dark);
     color: var(--white);
@@ -45,13 +27,10 @@ header h1 {
     font-size: 2.5em;
 }
 
-header nav {
-    margin-top: 10px;
-}
-
 header nav a {
     color: var(--white);
     margin: 0 15px;
+    text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
@@ -60,28 +39,28 @@ header nav a:hover {
     color: var(--blue-light);
 }
 
-/* ========================= */
-/* SECTIONS */
-/* ========================= */
+.section-light {
+    background-color: var(--white);
+    padding: 40px 20px;
+}
+
 section {
     padding: 40px 20px;
     max-width: 900px;
     margin: auto;
 }
 
-.section-light {
-    background-color: var(--white);
-}
-
 h2 {
     color: var(--blue-dark);
     border-bottom: 2px solid var(--blue-dark);
     padding-bottom: 5px;
+    text-align: center;
 }
 
 h3 {
-    color: var(--blue-light);
-    margin-top: 20px;
+    color: var(--blue-dark);
+    margin-top: 30px;
+    text-align: center;
 }
 
 ul {
@@ -89,105 +68,23 @@ ul {
     margin-left: 20px;
 }
 
-/* ========================= */
-/* PROJETS ET BOUTONS */
-/* ========================= */
-.projet-img, .cert-img {
-    max-width: 100%;
-    margin: 15px 0;
+.projet-img, .experience-logo, .cert-thumb {
+    display: block;
+    margin: 15px auto;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--blue-light);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
+.projet-img {
+    max-width: 100%;
 }
 
-.btn:hover {
-    background-color: var(--blue-dark);
-}
-
-/* ========================= */
-/* FOOTER */
-/* ========================= */
-footer {
-    background-color: var(--blue-dark);
-    color: var(--white);
-    text-align: center;
-    padding: 15px;
-}
-
-/* ========================= */
-/* EXPERIENCES */
-/* ========================= */
 .experience {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
-    background-color: var(--white);
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    align-items: center;
 }
 
 .experience-logo {
-    max-width: 120px;
-    height: auto;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    object-fit: contain;
-}
-
-.experience-content {
-    flex: 1;
-}
-
-/* ========================= */
-/* CERTIFICATIONS EN GRILLE */
-/* ========================= */
-.cert-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 0;
-    list-style: none;
-}
-
-.cert-list li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-color: var(--white);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-.cert-list li:hover {
-    transform: translateY(-5px);
-}
-
-.cert-list li img.cert-thumb {
-    max-width: 150px;
-    height: auto;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    object-fit: contain;
-}
-
-.cert-list li div {
-    font-size: 0.95em;
-    line-height: 1.4;
-}
+    max-width: 
