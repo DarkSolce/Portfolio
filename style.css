@@ -1,6 +1,6 @@
-/* ============================= */
-/* Couleurs professionnelles */
-/* ============================= */
+/* ========================= */
+/* VARIABLES DE COULEURS */
+/* ========================= */
 :root {
     --blue-dark: #0D3B66;
     --blue-light: #3D5A80;
@@ -9,9 +9,9 @@
     --white: #FFFFFF;
 }
 
-/* ============================= */
-/* BODY & TYPOGRAPHIE */
-/* ============================= */
+/* ========================= */
+/* STYLE GLOBAL */
+/* ========================= */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -27,12 +27,12 @@ a {
 }
 
 a:hover {
-    text-decoration: underline;
+    color: var(--blue-light);
 }
 
-/* ============================= */
+/* ========================= */
 /* HEADER */
-/* ============================= */
+/* ========================= */
 header {
     background-color: var(--blue-dark);
     color: var(--white);
@@ -43,6 +43,10 @@ header {
 header h1 {
     margin: 0;
     font-size: 2.5em;
+}
+
+header nav {
+    margin-top: 10px;
 }
 
 header nav a {
@@ -56,18 +60,17 @@ header nav a:hover {
     color: var(--blue-light);
 }
 
-/* ============================= */
+/* ========================= */
 /* SECTIONS */
-/* ============================= */
-.section-light {
-    background-color: var(--white);
-    padding: 40px 20px;
-}
-
+/* ========================= */
 section {
     padding: 40px 20px;
     max-width: 900px;
     margin: auto;
+}
+
+.section-light {
+    background-color: var(--white);
 }
 
 h2 {
@@ -76,14 +79,29 @@ h2 {
     padding-bottom: 5px;
 }
 
+h3 {
+    color: var(--blue-light);
+    margin-top: 20px;
+}
+
 ul {
     list-style-type: disc;
     margin-left: 20px;
 }
 
-/* ============================= */
-/* BOUTONS */
-/* ============================= */
+/* ========================= */
+/* PROJETS ET BOUTONS */
+/* ========================= */
+.projet-img, .cert-img {
+    max-width: 100%;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -92,16 +110,15 @@ ul {
     text-decoration: none;
     border-radius: 5px;
     margin-top: 10px;
-    transition: background 0.3s;
 }
 
 .btn:hover {
     background-color: var(--blue-dark);
 }
 
-/* ============================= */
+/* ========================= */
 /* FOOTER */
-/* ============================= */
+/* ========================= */
 footer {
     background-color: var(--blue-dark);
     color: var(--white);
@@ -109,96 +126,68 @@ footer {
     padding: 15px;
 }
 
-/* ============================= */
-/* IMAGES CENTRÉES ET RESPONSIVES */
-/* ============================= */
-
-/* Projet */
-.projet-img {
-    display: block;
-    margin: 20px auto;
-    max-width: 500px;
-    height: auto;
+/* ========================= */
+/* EXPERIENCES */
+/* ========================= */
+.experience {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-color: var(--white);
+    padding: 15px;
+    margin-bottom: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* Logos expériences */
 .experience-logo {
-    display: block;
-    margin: 10px auto;
     max-width: 120px;
     height: auto;
+    margin-right: 20px;
+    margin-bottom: 10px;
     object-fit: contain;
-    border-radius: 6px;
-    background: white;
-    padding: 5px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
 }
 
-/* Images certifications */
-.cert-thumb {
-    display: block;
-    margin: 20px auto;
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
-    background: white;
-    border: 1px solid #ddd;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+.experience-content {
+    flex: 1;
 }
 
-/* ============================= */
-/* EFFETS HOVER SUR IMAGES */
-/* ============================= */
-.projet-img:hover,
-.experience-logo:hover,
-.cert-thumb:hover {
-    transform: scale(1.05); /* léger zoom */
-}
-
-/* ============================= */
-/* CERTIFICATIONS LISTE */
-/* ============================= */
+/* ========================= */
+/* CERTIFICATIONS EN GRILLE */
+/* ========================= */
 .cert-list {
-    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
     padding: 0;
+    list-style: none;
 }
 
 .cert-list li {
-    margin-bottom: 25px;
-    text-align: center; /* centrer le texte des certifications */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--white);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.cert-list li:hover {
+    transform: translateY(-5px);
+}
+
+.cert-list li img.cert-thumb {
+    max-width: 150px;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    object-fit: contain;
 }
 
 .cert-list li div {
-    margin-top: 10px;
-}
-
-/* ============================= */
-/* RESPONSIVE MOBILE */
-/* ============================= */
-@media (max-width: 600px) {
-    .projet-img {
-        max-width: 90%;
-    }
-
-    .cert-thumb {
-        max-width: 200px;
-    }
-
-    .experience-logo {
-        max-width: 80px;
-    }
-
-    header h1 {
-        font-size: 2em;
-    }
-
-    header nav a {
-        display: block;
-        margin: 5px 0;
-    }
+    font-size: 0.95em;
+    line-height: 1.4;
 }
