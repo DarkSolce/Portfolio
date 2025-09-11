@@ -9,7 +9,7 @@ function isInViewport(el, threshold = 0.2) {
 
 // === HANDLE SCROLL ===
 function handleScroll() {
-    const elements = document.querySelectorAll('.scroll-element, .projet-img, .experience-logo, .experience, .cert-list li');
+    const elements = document.querySelectorAll('.scroll-element, .projet-img, .experience-logo, .experience, .cert-list li, .other-img-1, .other-img-2, .other-img-3, .other-img-4, .other-img-5, .other-img-6');
     elements.forEach((el, index) => {
         if(isInViewport(el) && !el.classList.contains('visible')){
             setTimeout(()=> el.classList.add('visible'), index*100);
