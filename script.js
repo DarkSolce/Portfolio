@@ -8,15 +8,15 @@ if (aboutSection) {
             }
         });
     }, { threshold: 0.2 });
-    
     observer.observe(aboutSection);
 }
-// === SELECTEURS ===
+
+// Sélection des éléments pour scroll animation
 const scrollElements = document.querySelectorAll(
   ".scroll-element, .cert-thumb, .projet-img, .experience-logo, .experience, .cert-list li"
 );
 
-// === FONCTION DE VERIFICATION DE VISIBILITE ===
+// Vérifie si élément est visible
 const elementInView = (el, dividend = 1) => {
   const elementTop = el.getBoundingClientRect().top;
   return elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend;
@@ -27,37 +27,25 @@ const elementOutofView = (el) => {
   return elementTop > (window.innerHeight || document.documentElement.clientHeight);
 };
 
-// === AJOUT / RETRAIT DE CLASSE VISIBLE ===
-const displayScrollElement = (element) => {
-  element.classList.add("visible");
-};
+// Ajout / retrait de classe visible
+const displayScrollElement = (element) => element.classList.add("visible");
+const hideScrollElement = (element) => element.classList.remove("visible");
 
-const hideScrollElement = (element) => {
-  element.classList.remove("visible");
-};
-
-// === FONCTION PRINCIPALE DE SCROLL ===
+// Fonction principale de scroll
 const handleScrollAnimation = () => {
   scrollElements.forEach((el) => {
-    if (elementInView(el, 1.2)) {
-      displayScrollElement(el);
-    } else if (elementOutofView(el)) {
-      hideScrollElement(el);
-    }
+    if (elementInView(el, 1.2)) displayScrollElement(el);
+    else if (elementOutofView(el)) hideScrollElement(el);
   });
 };
 
-// === LISTENER SCROLL ===
-window.addEventListener("scroll", () => {
-  handleScrollAnimation();
-});
+// Listener scroll
+window.addEventListener("scroll", handleScrollAnimation);
 
-// === INITIALISATION AU CHARGEMENT ===
-document.addEventListener("DOMContentLoaded", () => {
-  handleScrollAnimation();
-});
+// Initialisation au chargement
+document.addEventListener("DOMContentLoaded", handleScrollAnimation);
 
-// === OPTIONNEL: CLICK SUR LES BOUTONS POUR PROJETS ===
+// Click sur les boutons pour projets
 const projectButtons = document.querySelectorAll(".btn");
 projectButtons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
