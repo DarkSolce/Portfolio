@@ -66,7 +66,7 @@ img {
 /* === INDIVIDUAL IMAGE CLASSES === */
 .profile-img {
     width: 600px;   /* change freely */
-    height: 600px;  /* change freely */
+    height: 800px;  /* change freely */
     object-fit: cover;
     display: block;
 }
