@@ -94,14 +94,14 @@ img {
 
 .other-img-2 {
     width: 400px;
-    height: 550px;
+    height: 400px;
     object-fit: cover;
     display: block;
 }
 
 .other-img-3 {
-    width: 400px;
-    height: 550px;
+    width: 500px;
+    height: 300px;
     object-fit: cover;
     display: block;
 }
