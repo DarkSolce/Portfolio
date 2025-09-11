@@ -48,6 +48,24 @@ header nav a {
 
 header nav a:hover { color: var(--blue-light); }
 
+/* === ABOUT === */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.profile-img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.4s ease;
+}
+
 /* === SECTIONS === */
 .section-light { background-color: var(--white); }
 
@@ -61,7 +79,7 @@ header nav a:hover { color: var(--blue-light); }
 }
 
 .projet-img { width: 600px; height: 300px; object-fit: cover; }
-.cert-thumb, .experience-logo { width: 80px; height: 80px; object-fit: cover; }
+.cert-thumb, .experience-logo { width: 600px; height: 300px; object-fit: cover; }
 
 /* === EXPERIENCES === */
 .experience {
@@ -94,6 +112,8 @@ header nav a:hover { color: var(--blue-light); }
 }
 
 .cert-list li:hover { transform: translateX(10px); }
+
+.cert-list li div { margin-left: 20px; }
 
 /* === BUTTONS === */
 .btn {
@@ -139,7 +159,8 @@ footer p { margin: 0; }
 @media (max-width: 768px) {
     .experience { flex-direction: column; text-align: center; }
     .experience-logo { margin: 0 auto 15px; }
-    .projet-img { width: 100%; max-width: 400px; height: 200px; }
+    .projet-img, .cert-thumb { width: 100%; max-width: 400px; height: 200px; }
     .cert-list li { flex-direction: column; text-align: center; }
-    .cert-thumb { margin: 0 0 10px 0; }
+    .cert-list li div { margin-left: 0; margin-top: 10px; }
+    .profile-img { width: 100%; max-width: 300px; height: 300px; }
 }
