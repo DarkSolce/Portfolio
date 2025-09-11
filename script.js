@@ -10,7 +10,41 @@ function isInViewport(element, threshold = 0.2) {
     );
 }
 
-// === GESTION DU SCROLL AVEC ANIMATIONS ===
+// === DÉTECTION DE VIEWPORT AMÉLIORÉE ===
+function isInViewport(element, threshold = 0.2) {
+    const rect = element.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    const elementHeight = rect.bottom - rect.top;
+    
+    return (
+        rect.top <= windowHeight - (elementHeight * threshold) &&
+        rect.bottom >= (elementHeight * threshold)
+    );
+}
+
+// === GESTION DU SCROLL AVEC BARRE DE PROGRESSION ===
+function updateScrollProgress() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    
+    const progressBar = document.querySelector('.scroll-progress');
+    if (progressBar) {
+        progressBar.style.width = scrolled + '%';
+    }
+    
+    // Bouton retour en haut
+    const backToTop = document.querySelector('.back-to-top');
+    if (backToTop) {
+        if (winScroll > 500) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    }
+    
+    scrollProgress = scrolled;
+}
 function handleScroll() {
     // Éléments principaux
     const scrollElements = document.querySelectorAll('.scroll-element');
