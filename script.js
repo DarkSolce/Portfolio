@@ -1,72 +1,57 @@
-// === UTILS ===
-function isInViewport(el, threshold = 0.2) {
-    if(!el) return false;
-    const rect = el.getBoundingClientRect();
-    const winH = window.innerHeight || document.documentElement.clientHeight;
-    const elH = rect.bottom - rect.top;
-    return rect.top <= winH - (elH * threshold) && rect.bottom >= (elH * threshold);
-}
+// === SELECTEURS ===
+const scrollElements = document.querySelectorAll(
+  ".scroll-element, .cert-thumb, .projet-img, .experience-logo, .experience, .cert-list li"
+);
 
-// === HANDLE SCROLL ===
-function handleScroll() {
-    const elements = document.querySelectorAll('.scroll-element, .projet-img, .experience-logo, .experience, .cert-list li');
-    elements.forEach((el, index) => {
-        if(isInViewport(el) && !el.classList.contains('visible')){
-            setTimeout(()=> el.classList.add('visible'), index*100);
-        }
-    });
-}
+// === FONCTION DE VERIFICATION DE VISIBILITE ===
+const elementInView = (el, dividend = 1) => {
+  const elementTop = el.getBoundingClientRect().top;
+  return elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend;
+};
 
-// === SMOOTH SCROLL NAVIGATION ===
-function initSmoothScroll() {
-    document.querySelectorAll('header nav a').forEach(a => {
-        a.addEventListener('click', e => {
-            e.preventDefault();
-            const target = document.querySelector(a.getAttribute('href'));
-            if(target){
-                const headerH = document.querySelector('header').offsetHeight;
-                const pos = target.getBoundingClientRect().top + window.pageYOffset - headerH - 20;
-                window.scrollTo({ top: pos, behavior: 'smooth' });
-            }
-        });
-    });
-}
+const elementOutofView = (el) => {
+  const elementTop = el.getBoundingClientRect().top;
+  return elementTop > (window.innerHeight || document.documentElement.clientHeight);
+};
 
-// === HEADER ANIMATION ===
-function animateHeader() {
-    const h = document.querySelector('header');
-    if(h){
-        h.style.opacity = 0;
-        h.style.transform = 'translateY(-50px)';
-        setTimeout(()=>{
-            h.style.transition = 'all 1s ease-out';
-            h.style.opacity = 1;
-            h.style.transform = 'translateY(0)';
-        }, 200);
+// === AJOUT / RETRAIT DE CLASSE VISIBLE ===
+const displayScrollElement = (element) => {
+  element.classList.add("visible");
+};
+
+const hideScrollElement = (element) => {
+  element.classList.remove("visible");
+};
+
+// === FONCTION PRINCIPALE DE SCROLL ===
+const handleScrollAnimation = () => {
+  scrollElements.forEach((el) => {
+    if (elementInView(el, 1.2)) {
+      displayScrollElement(el);
+    } else if (elementOutofView(el)) {
+      hideScrollElement(el);
     }
-}
+  });
+};
 
-// === TYPEWRITER EFFECT ===
-function typewriterEffect() {
-    const title = document.querySelector('header h1');
-    if(title){
-        const text = title.textContent;
-        title.textContent = '';
-        let i = 0;
-        const timer = setInterval(()=>{
-            if(i<text.length){ title.textContent += text.charAt(i); i++; }
-            else clearInterval(timer);
-        },100);
+// === LISTENER SCROLL ===
+window.addEventListener("scroll", () => {
+  handleScrollAnimation();
+});
+
+// === INITIALISATION AU CHARGEMENT ===
+document.addEventListener("DOMContentLoaded", () => {
+  handleScrollAnimation();
+});
+
+// === OPTIONNEL: CLICK SUR LES BOUTONS POUR PROJETS ===
+const projectButtons = document.querySelectorAll(".btn");
+projectButtons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const target = btn.getAttribute("href");
+    if (target && document.querySelector(target)) {
+      document.querySelector(target).scrollIntoView({ behavior: "smooth" });
     }
-}
-
-// === INITIALISATION ===
-function init(){
-    animateHeader();
-    setTimeout(typewriterEffect, 500);
-    initSmoothScroll();
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-}
-
-document.addEventListener('DOMContentLoaded', init);
+  });
+});
