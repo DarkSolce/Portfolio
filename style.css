@@ -68,40 +68,238 @@ ul {
     margin-left: 20px;
 }
 
-.projet-img, .experience-logo, .cert-thumb {
-    display: block;
-    margin: 15px auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
+/* === IMAGES - TAILLES UNIFORMES ET CENTRÉES === */
 
+/* Image du projet principal */
 .projet-img {
     max-width: 100%;
+    width: 600px; /* Largeur fixe pour uniformité */
+    height: 300px; /* Hauteur fixe */
+    object-fit: cover; /* Conserve les proportions */
+    display: block;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.4s ease;
 }
 
+/* Logos d'expériences */
+.experience-logo {
+    width: 80px; /* Taille uniforme */
+    height: 80px;
+    object-fit: contain; /* Préserve le logo sans déformation */
+    border-radius: 8px;
+    margin-right: 20px;
+    flex-shrink: 0; /* Empêche la réduction */
+    transition: all 0.4s ease;
+}
+
+/* Miniatures des certifications */
+.cert-thumb {
+    width: 80px; /* Taille uniforme */
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.4s ease;
+}
+
+/* === LAYOUT DES EXPERIENCES === */
 .experience {
     display: flex;
-    flex-wrap: wrap;
+    align-items: flex-start; /* Alignement en haut */
     margin-bottom: 30px;
-    align-items: center;
+    padding: 20px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
 }
 
-.experience-logo {
-    max-width: 
-/* Animation apparition au scroll */
-.scroll-element, .cert-thumb, .projet-img, .experience-logo {
+.experience-content {
+    flex: 1; /* Prend l'espace restant */
+}
+
+.experience:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+/* === LAYOUT DES CERTIFICATIONS === */
+.cert-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cert-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+}
+
+.cert-list li:hover {
+    transform: translateX(10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.cert-list li div {
+    flex: 1;
+}
+
+/* === PROJET LAYOUT === */
+.projet {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--blue-dark);
+    color: var(--white);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: var(--blue-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(13, 59, 102, 0.3);
+}
+
+/* === ANIMATIONS DE SCROLL === */
+.scroll-element, .cert-thumb, .projet-img, .experience-logo, .experience, .cert-list li {
     opacity: 0;
     transform: translateY(50px);
-    transition: all 0.8s ease-out;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.scroll-element.visible, .cert-thumb.visible, .projet-img.visible, .experience-logo.visible {
+.scroll-element.visible, .cert-thumb.visible, .projet-img.visible, .experience-logo.visible, .experience.visible, .cert-list li.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Effet zoom sur les images */
-.cert-thumb:hover, .projet-img:hover, .experience-logo:hover {
+/* Délais d'animation pour effet cascade */
+.cert-list li:nth-child(1).visible { transition-delay: 0.1s; }
+.cert-list li:nth-child(2).visible { transition-delay: 0.2s; }
+.cert-list li:nth-child(3).visible { transition-delay: 0.3s; }
+.cert-list li:nth-child(4).visible { transition-delay: 0.4s; }
+.cert-list li:nth-child(5).visible { transition-delay: 0.5s; }
+
+.experience:nth-child(1).visible { transition-delay: 0.1s; }
+.experience:nth-child(2).visible { transition-delay: 0.3s; }
+.experience:nth-child(3).visible { transition-delay: 0.5s; }
+.experience:nth-child(4).visible { transition-delay: 0.7s; }
+
+/* === EFFETS DE SURVOL AMÉLIORÉS === */
+.cert-thumb:hover {
+    transform: scale(1.2) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.projet-img:hover {
     transform: scale(1.05);
-    transition: transform 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.experience-logo:hover {
+    transform: scale(1.15) rotate(-5deg);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* === ANIMATIONS SUPPLÉMENTAIRES === */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Classes d'animation spéciales */
+.animate-fade-up {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-slide-left {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.animate-slide-right {
+    animation: slideInRight 0.8s ease-out;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .experience {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .experience-logo {
+        margin: 0 auto 15px auto;
+    }
+    
+    .projet-img {
+        width: 100%;
+        max-width: 400px;
+        height: 200px;
+    }
+    
+    .cert-list li {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cert-thumb {
+        margin: 0 0 10px 0;
+    }
+}
+
+/* === FOOTER === */
+footer {
+    background-color: var(--blue-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
 }
