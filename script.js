@@ -1,3 +1,16 @@
+// Animation scroll pour la section À propos
+const aboutSection = document.querySelector('.about-container');
+if (aboutSection) {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                aboutSection.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+    
+    observer.observe(aboutSection);
+}
 // === SELECTEURS ===
 const scrollElements = document.querySelectorAll(
   ".scroll-element, .cert-thumb, .projet-img, .experience-logo, .experience, .cert-list li"
